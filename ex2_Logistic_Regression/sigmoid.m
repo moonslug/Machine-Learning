@@ -8,8 +8,8 @@ g = zeros(size(z));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the sigmoid of each value of z (z can be a matrix,
 %               vector or scalar).
-base_e = e(size(z));
-g = 1 ./ (1 + base_e .** (-z));
+base_e = repmat(exp(1), size(z));
+g = 1 ./ (1 + base_e .^ (-z));
 % =============================================================
 
 end

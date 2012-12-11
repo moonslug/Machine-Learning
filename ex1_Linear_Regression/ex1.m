@@ -40,7 +40,7 @@ fprintf('%f %f \n', theta(1), theta(2));
 hold on; % keep previous plot visible
 plot(X(:,2), X*theta, '-')
 legend('Training data', 'Linear regression')
-print -color dgif linearFit.gif
+print linearFit.gif
 hold off % don't overlay any more plots on this figure
 
 % Predict values for population sizes of 35,000 and 70,000
@@ -80,7 +80,7 @@ J_vals = J_vals';
 figure;
 surf(theta0_vals, theta1_vals, J_vals)
 xlabel('\theta_0'); ylabel('\theta_1');
-print -color dgif surfacePlot.gif
+print surfacePlot.gif
 
 % Contour plot
 figure;
@@ -89,4 +89,4 @@ contour(theta0_vals, theta1_vals, J_vals, logspace(-2, 3, 20))
 xlabel('\theta_0'); ylabel('\theta_1');
 hold on;
 plot(theta(1), theta(2), 'rx', 'MarkerSize', 10, 'LineWidth', 2);
-print -color dgif contourPlot.gif
+print contourPlot.gif

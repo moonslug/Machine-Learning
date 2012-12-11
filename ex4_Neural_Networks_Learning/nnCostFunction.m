@@ -80,7 +80,8 @@ for i = 1:m
 
 % feedbbbbbbbbbbbbbbbbbackward algo
     delta3 = a3 - y_label;
-    delta2 = (Theta2' * delta3)(2:end, :) .* sigmoidGradient(z2);
+    tmp_delta2 = Theta2' * delta3;
+    delta2 = tmp_delta2(2:end, :) .* sigmoidGradient(z2);
     
     Theta1_grad = Theta1_grad + (delta2 * a1');
     Theta2_grad = Theta2_grad + (delta3 * a2');
@@ -95,13 +96,13 @@ Theta2_grad = Theta2_grad / m;
 reg_theta1 = Theta1(:, 2:end);
 reg_theta2 = Theta2(:, 2:end);
 
-J = J + (lambda / (2 * m)) * (sum(sum(reg_theta1 .^ 2)) + \
+J = J + (lambda / (2 * m)) * (sum(sum(reg_theta1 .^ 2)) + ...
     sum(sum(reg_theta2 .^ 2)));
 
 % gradient regulization
-Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + (lambda / m) \
+Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + (lambda / m) ...
            .* Theta1(:, 2:end);
-Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + (lambda / m) \
+Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + (lambda / m) ...
            .* Theta2(:, 2:end);
 
 % Unroll gradients

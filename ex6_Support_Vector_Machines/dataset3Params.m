@@ -38,7 +38,7 @@ for i = 1:t
       minError = error;
       C = candidates(i);
       sigma = candidates(j);
-    endif
+    end
   end
 end
 % =========================================================================

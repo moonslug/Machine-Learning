@@ -227,7 +227,7 @@ Z = projectData(X_norm, U, 2);
 
 % Plot in 2D
 figure;
-plotDataPoints(Z(sel, :), idx(sel), K);
+plotDataPoints(-Z(sel, :), idx(sel), K);
 title('Pixel dataset plotted in 2D, using PCA for dimensionality reduction');
 fprintf('Program paused. Press enter to continue.\n');
 pause;

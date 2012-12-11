@@ -25,7 +25,7 @@ for i = 1:length(idx)
     for j = 1:K
         tmp_distance(j) = sum((centroids(j, :) - X(i, :)) .^ 2);
     end
-    idx(i) = find(tmp_distance == min(tmp_distance))(1);
+    idx(i) = find(tmp_distance == min(tmp_distance), 1);
 end
 % =============================================================
 
